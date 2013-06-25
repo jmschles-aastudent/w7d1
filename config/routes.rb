@@ -3,17 +3,16 @@ PhotoTagger::Application.routes.draw do
 
   resources :friendships, :only => [:destroy]
 
-  resources :photos do
-    resources :tags, :only => [:create]
-  end
 
   resource :session
 
-  resources :tags, :only => [:destroy]
+  resources :tags, :only => [:create, :destroy]
 
   resources :users do
+    resources :photos, :only => [:index, :create, :update]
     resources :friendships, :only => [:create]
   end
 
+  resources :photos, :only => [:destroy]
 
 end

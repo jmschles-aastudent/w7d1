@@ -1,20 +1,22 @@
-PhotoApp.Photo = function(attrs) {
+
+
+PA.Models.Photo = function(attrs) {
 	this.title = attrs.title;
 	this.user_id = attrs.user_id;
 	this.url = attrs.url;
 
 	this.attrs = attrs;
-}
+};
 
-PhotoApp.Photo.prototype.save = function() {
+PA.Models.Photo.prototype.save = function() {
 	if (this.id) {
 		this.update;
 	} else {
 		this.create;
 	}
-}
+};
 
-PhotoApp.Photo.prototype.create = function() {
+PA.Models.Photo.prototype.create = function() {
 	$.ajax({
 		url: '/photos',
 		type: 'post',
@@ -23,9 +25,9 @@ PhotoApp.Photo.prototype.create = function() {
 			console.log("You created me!");
 		}
 	});
-}
+};
 
-PhotoApp.Photo.prototype.update = function() {
+PA.Models.Photo.prototype.update = function() {
 	$.ajax({
 		url: '/photos/' + this.id,
 		type: 'post',
@@ -34,14 +36,19 @@ PhotoApp.Photo.prototype.update = function() {
 			console.log("You updated me!");
 		}
 	});
-}
+};
 
-PhotoApp.Photo.fetch = function(user_id, callback) {
+PA.Models.Photo.fetch = function(user_id, callback) {
 	$.ajax({
-		url: "/photos/",
+		url: "/users/"+user_id+"/photos.json",
 		type: "get",
 		success: function(photoArray) {
-
+			console.log("photoArray is ")
+			console.log(photoArray)
+			PA.Models.Photo._all = _.map(photoArray, function(photoAttrs) {
+				return new PA.Models.Photo(photoAttrs);
+			});
+			callback(PA.Models.Photo._all);
 		}
 	});
-}
+};
