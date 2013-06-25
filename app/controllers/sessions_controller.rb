@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_username(params[:user][:username])
     if @user && @user.verify_password(params[:user][:password])
       session[:session_token] = @user.reset_session_token
-      redirect_to user_photos_url(@user.id)
+      redirect_to '/'
     else
       @user = User.new(params[:user])
       render :new

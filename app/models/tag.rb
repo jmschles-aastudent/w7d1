@@ -10,7 +10,7 @@
 #
 
 class Tag < ActiveRecord::Base
-  attr_accessible :photo_id, :user_id
+  attr_accessible :photo_id, :user_id, :x_pos, :y_pos
 
   belongs_to :photo
   belongs_to :tagged_user, :class_name => "User", :foreign_key => :user_id

@@ -15,7 +15,8 @@
 //= require underscore
 //= require photoapp
 //= require_tree ./models
-//= require_tree ./views
+//= require_tree ./controllers
+
 
 // EJS Templates
 //= require_tree ../templates

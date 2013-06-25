@@ -21,3 +21,8 @@ friendships = Friendship.create([
   {friend_id: 1, friender_id: 2},
   {friend_id: 2, friender_id: 1},
 ])
+
+tags = Tag.create([
+  {photo_id: 3, user_id: 1, x_pos: 100, y_pos: 100},
+  {photo_id: 2, user_id: 2, x_pos: 100, y_pos: 100}
+])

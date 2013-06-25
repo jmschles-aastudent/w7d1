@@ -17,7 +17,8 @@ class Photo < ActiveRecord::Base
   validates :url, :presence => true
 
 
-  has_many :tags
+  has_many :tags, :dependent => :destroy
   belongs_to :user
+
 
 end
