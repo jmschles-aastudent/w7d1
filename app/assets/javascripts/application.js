@@ -12,4 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+PhotoApp = {};
 //= require_tree .
+
+$(function() {
+	var current_user_id = parseInt($("#current_user_id").html());
+	console.log(current_user_id);
+	// PhotoApp.Photo.fetch
+})
