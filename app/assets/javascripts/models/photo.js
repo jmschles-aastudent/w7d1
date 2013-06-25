@@ -35,3 +35,13 @@ PhotoApp.Photo.prototype.update = function() {
 		}
 	});
 }
+
+PhotoApp.Photo.fetch = function(user_id, callback) {
+	$.ajax({
+		url: "/photos/",
+		type: "get",
+		success: function(photoArray) {
+
+		}
+	});
+}
