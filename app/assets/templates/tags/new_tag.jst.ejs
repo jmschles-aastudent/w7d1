@@ -1,5 +1,4 @@
-<div class="new_tag_form"
-style="position:absolute;left:<%=x_pos%>px;top:<%=y_pos%>px">
+
   <select name="tag[user_id]">
     <% _(friends).each(function(friend) { %>
       <option value="<%= friend.id %>"><%= friend.username %></option>
@@ -7,4 +6,3 @@ style="position:absolute;left:<%=x_pos%>px;top:<%=y_pos%>px">
   </select>
 
   <input type="submit" value="Tag">
-</div>
