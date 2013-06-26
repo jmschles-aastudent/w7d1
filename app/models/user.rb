@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 
   has_many :photos, :dependent => :destroy
   has_many :friendships, :foreign_key => :friender_id, :dependent => :destroy
-  has_many :friends, through: :friendships, :source => :friend_id
+  has_many :friends, through: :friendships, :source => :friend
   has_many :tags, :foreign_key => :user_id, :dependent => :destroy
 
 

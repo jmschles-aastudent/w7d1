@@ -11,3 +11,13 @@
  *= require_self
  *= require_tree .
  */
+
+
+#photos {
+	position: relative;
+}
+
+.single_photo {
+	position: absolute;
+}
+

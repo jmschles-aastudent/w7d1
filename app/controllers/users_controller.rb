@@ -13,4 +13,8 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def index
+    render :json => current_user.friends
+  end
+
 end

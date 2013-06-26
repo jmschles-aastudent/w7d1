@@ -1,5 +1,7 @@
 <% _.each(photos, function(photo) { %>
-  <img src="<%=photo.url%>" class="user_photo" data-id="photo_<%= photo.id %>"><br />
+  <img src="<%=photo.url%>" class="user_photo" data-photo-id="<%= photo.id %>"
+  height="200px" width="auto" />
+  <br />
 <% }); %>
 
 
