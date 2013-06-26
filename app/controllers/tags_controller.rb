@@ -9,7 +9,13 @@ class TagsController < ApplicationController
   end
 
   def create
-    @tag = Tag.new(params)
+    @tag = Tag.new(params[:tag])
+
+    if @tag.save
+      render :json => @tag
+    else
+      render :text => "OOPS"
+    end
   end
 
   def destroy

@@ -25,27 +25,30 @@ PA.Models.Tag.find = function(tag_id) {
 	return _(PA.Models.Tag._all).findWhere({ id: tag_id });
 };
 
-PA.Models.Tag.prototype.save = function() {
+PA.Models.Tag.prototype.save = function(callback) {
 	if (!this.id) {
-		this.create();
+		this.create(callback);
 	} else {
-		this.update();
+		this.update(callback);
 	}
 };
 
-PA.Models.Tag.prototype.create = function() {
+PA.Models.Tag.prototype.create = function(callback) {
 	var tagModel = this;
 	$.ajax({
 		url: this.baseUrl,
 		type: "post",
 		data: {
-			user_id: this.user_id,
-			x_pos: this.x_pos,
-			y_pos: this.y_pos
+			tag: {
+				photo_id: this.photo_id,
+				user_id: this.user_id,
+				x_pos: this.x_pos,
+				y_pos: this.y_pos
+			}
 		},
 		success: function(tag) {
 			tagModel.id = tag.id;
-			console.log("Tag created!");
+			callback(tag);
 		}
 	})
 };
@@ -55,11 +58,13 @@ PA.Models.Tag.prototype.update = function() {
 		url: '/tags/' + this.id,
 		type: "put",
 		data: {
-			id: this.id,
-			photo_id: this.photo_id,
-			user_id: this.user_id,
-			x_pos: this.x_pos,
-			y_pos: this.y_pos
+			tag: {
+				id: this.id,
+				photo_id: this.photo_id,
+				user_id: this.user_id,
+				x_pos: this.x_pos,
+				y_pos: this.y_pos
+			}
 		},
 		success: function(tag) {
 			console.log("Tag updated!");

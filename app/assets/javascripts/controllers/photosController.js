@@ -60,7 +60,7 @@ PA.Controllers.PhotoShowController.prototype.installClickHandler = function() {
 			var bigDiv = $("#photos");
 
 			var littleDiv = $("<div>");
-			var tagFormController = new PA.Controllers.TagFormController(bigDiv, x_pos, y_pos, friendArray);
+			var tagFormController = new PA.Controllers.TagFormController(bigDiv, x_pos, y_pos, that.photo, friendArray);
 
 			tagFormController.render();
 		});

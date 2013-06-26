@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    render :json => current_user.friends
+    render :json => current_user.friends.push(current_user)
   end
 
 end
